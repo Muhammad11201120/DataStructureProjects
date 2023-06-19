@@ -21,9 +21,9 @@ public:
 	Node* Find( T value )
 	{
 		Node* temp = head;
-		while (temp != NULL)
+		while ( temp != NULL )
 		{
-			if (temp->value == value)
+			if ( temp->value == value )
 			{
 				return temp;
 			}
@@ -37,7 +37,7 @@ public:
 		newNode->value = value;
 		newNode->next = this->head;
 		newNode->prev = NULL;
-		if (this->head != NULL)
+		if ( this->head != NULL )
 		{
 			head->prev = newNode;
 		}
@@ -49,28 +49,28 @@ public:
 		Node* newNode = new Node();
 		newNode->value = value;
 		newNode->next = NULL;
-		if (this->head == NULL)
+		if ( this->head == NULL )
 		{
 			newNode->prev = NULL;
 			this->head = newNode;
 		}
 		else
 		{
-			Node* temp = this->head;
-			while (temp != NULL)
+			Node* current = this->head;
+			while ( current->next != NULL )
 			{
-				temp = temp->next;
+				current = current->next;
 			}
-			temp->next = newNode;
-			newNode->prev = temp;
+			current->next = newNode;
+			newNode->prev = current;
 		}
 		_size++;
 	}
-	void InsertAfter( Node*& node, T value )
+	void InsertAfter( Node*& node , T value )
 	{
 		Node* newNode = new Node();
 		newNode->value = value;
-		if (head == NULL)
+		if ( head == NULL )
 		{
 			newNode->next = NULL;
 			newNode->prev = NULL;
@@ -81,7 +81,7 @@ public:
 			newNode->next = node->next;
 			newNode->prev = node;
 			node->next = newNode;
-			if (newNode->next != NULL)
+			if ( newNode->next != NULL )
 			{
 				newNode->next->prev = newNode;
 			}
@@ -90,20 +90,20 @@ public:
 	}
 	void DeleteNode( Node*& node )
 	{
-		if (this->head == NULL || node == NULL)
+		if ( this->head == NULL || node == NULL )
 		{
 			return;
 		}
 		Node* current = this->head;
-		while (current != node)
+		while ( current != node )
 		{
 			current = current->next;
 		}
-		if (current->next != NULL)
+		if ( current->next != NULL )
 		{
 			current->next->prev = current->prev;
 		}
-		if (current->prev != NULL)
+		if ( current->prev != NULL )
 		{
 			current->prev->next = current->next;
 		}
@@ -112,7 +112,7 @@ public:
 	}
 	void DeleteFirstNode()
 	{
-		if (this->head == NULL)
+		if ( this->head == NULL )
 		{
 			return;
 		}
@@ -124,22 +124,34 @@ public:
 	}
 	void DeleteLastNode()
 	{
-		Node* curretnt = head;
-		if (head == NULL)
+		/*
+		 1-Traverse the list to find the last node.
+		 2-Set the next pointer of the second-to-last node to NULL.
+		 3-Delete the last node.
+	 */
+
+		if ( head == NULL )
 		{
 			return;
 		}
-		if (curretnt->prev != NULL && curretnt->next != NULL)
+
+		if ( head->next == NULL )
 		{
-			delete curretnt;
+			delete head;
+			head = NULL;
 			return;
 		}
-		while (curretnt != NULL)
+
+		Node* current = head;
+		// we need to find the node before last node.
+		while ( current->next->next != NULL )
 		{
-			curretnt = curretnt->next;
+			current = current->next;
 		}
-		curretnt->prev->next = NULL;
-		delete curretnt;
+
+		Node* temp = current->next;
+		current->next = NULL;
+		delete temp;
 		_size--;
 	}
 	//getListSize
@@ -150,18 +162,18 @@ public:
 	//IsEmptyList
 	bool IsEmpty()
 	{
-		return (_size == 0);
+		return ( _size == 0 );
 	}
 	//Reverse
 	void Reverse()
 	{
-		if (_size == 0)
+		if ( _size == 0 )
 		{
-			return NULL;
+			return;
 		}
 		Node* current = head;
 		Node* temp = NULL;
-		while (current != NULL)
+		while ( current->next != NULL )
 		{
 			temp = current->next;
 			current->next = current->prev;
@@ -171,7 +183,7 @@ public:
 		}
 
 		// to put the head in correct position
-		if (temp != NULL)
+		if ( temp != NULL )
 		{
 			head = temp->prev;
 		}
@@ -179,15 +191,15 @@ public:
 	//getNode
 	Node* GetNode( int index )
 	{
-		if (index < 0 || index > _size)
+		if ( index < 0 || index > _size )
 		{
 			return NULL;
 		}
 		int counter = 0;
 		Node* current = head;
-		while (current != NULL && current->next != NULL)
+		while ( current != NULL && current->next != NULL )
 		{
-			if (counter == index)
+			if ( counter == index )
 			{
 				return current;
 			}
@@ -201,17 +213,17 @@ public:
 	{
 
 		Node* itemNode = GetNode( index );
-		if (itemNode != NULL)
+		if ( itemNode != NULL )
 		{
 			return itemNode->value;
 		}
 		return NULL;
 	}
 	//UpdateNode
-	bool updateNode( int index, T value )
+	bool updateNode( int index , T value )
 	{
 		Node* itemNode = GetNode( index );
-		if (itemNode != NULL)
+		if ( itemNode != NULL )
 		{
 			itemNode->value = value;
 			return true;
@@ -220,12 +232,12 @@ public:
 			return false;
 	}
 	//InsertAfterIndex
-	bool InsertAfterIndex( int indexs, T value )
+	bool InsertAfterIndex( int index , T value )
 	{
 		Node* itemNode = GetNode( index );
-		if (itemNode != NULL)
+		if ( itemNode != NULL )
 		{
-			InsertAfter( itemNode, value );
+			InsertAfter( itemNode , value );
 			return true;
 		}
 		else
@@ -236,13 +248,11 @@ public:
 	{
 		Node* Current = this->head;
 
-		while (Current != NULL)
+		while ( Current != NULL )
 		{
 			cout << Current->value << " | ";
 			Current = Current->next;
 		}
 		cout << "\n";
-
-
 	}
 };
