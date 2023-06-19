@@ -191,22 +191,22 @@ public:
 	//getNode
 	Node* GetNode( int index )
 	{
-		if ( index < 0 || index > _size )
+		if ( index < 0 || index > _size - 1 )
 		{
 			return NULL;
 		}
 		int counter = 0;
 		Node* current = head;
-		while ( current != NULL && current->next != NULL )
+		while ( current != NULL && ( current->next != NULL ) )
 		{
 			if ( counter == index )
 			{
-				return current;
+				break;
 			}
 			current = current->next;
 			counter++;
 		}
-		return NULL;
+		return current;
 	}
 	//getItem
 	T GetItem( int index )
