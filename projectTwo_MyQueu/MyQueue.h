@@ -39,4 +39,20 @@ public:
 	{
 		return _myList.GetItem( Size() - 1 );
 	}
+	//GetItem
+	T GetItem( int index )
+	{
+		clsDbLinkedList<int>::Node* itemNode = _myList.GetNode( index );
+		if ( itemNode != NULL )
+		{
+			return itemNode->value;
+		}
+		return NULL;
+	}
+	//Reverse
+	//UpdateItem
+	//InsertAfter
+	//InsertAtFront
+	//InsertAtBack
+	//Clear
 };

@@ -27,7 +27,7 @@ int main()
 	cout << "\n\nQueue after pop() : \n";
 	MyQueue.Print();
 
-
+	cout << "\n\nValue is : " << MyQueue.GetItem( 1 );
 
 
 
