@@ -50,9 +50,33 @@ public:
 		return NULL;
 	}
 	//Reverse
+	void Revers()
+	{
+		_myList.Reverse();
+	}
 	//UpdateItem
+	void UpdateItem( int index , T value )
+	{
+		_myList.updateNode( index , value );
+	}
 	//InsertAfter
+	void InsertAfter( clsDbLinkedList<int>::Node*& node , T value )
+	{
+		_myList.InsertAfter( node , value );
+	}
 	//InsertAtFront
+	void InsertAtFront( T value )
+	{
+		_myList.InsertAtBeganing( value );
+	}
 	//InsertAtBack
+	void InsertAtBack( T value )
+	{
+		_myList.InsertAtEnd( value );
+	}
 	//Clear
+	void Clear()
+	{
+		_myList.Clear();
+	}
 };
