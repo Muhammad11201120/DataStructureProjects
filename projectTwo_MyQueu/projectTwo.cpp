@@ -28,7 +28,21 @@ int main()
 	MyQueue.Print();
 
 	cout << "\n\nValue is : " << MyQueue.GetItem( 1 );
+	cout << "\n\nList After Adding 1000 to Front: " << endl;
+	MyQueue.InsertAtFront( 1000 );
+	MyQueue.Print();
 
+	cout << "\n\nList After Adding 500 To The Back: " << endl;
+	MyQueue.InsertAtBack( 500 );
+	MyQueue.Print();
+
+	cout << "\n\nReversing The List: " << endl;
+	MyQueue.Revers();
+	MyQueue.Print();
+
+	cout << "Clearing the List: " << endl;
+	MyQueue.Clear();
+	MyQueue.Print();
 
 
 	system( "pause>0" );

@@ -243,6 +243,20 @@ public:
 		else
 			return false;
 	}
+	void Clear()
+	{
+		if ( head == NULL )
+		{
+			return;
+		}
+		Node* current = head;
+		while ( current->next != NULL )
+		{
+			DeleteFirstNode();
+			current = current->next;
+
+		}
+	}
 	void PrintList()
 
 	{

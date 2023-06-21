@@ -5,7 +5,7 @@ template <class T>
 class clsMyQueue
 {
 protected:
-	clsDbLinkedList<int> _myList;
+	clsDbLinkedList<T> _myList;
 public:
 	void Push( T value )
 	{
@@ -42,12 +42,7 @@ public:
 	//GetItem
 	T GetItem( int index )
 	{
-		clsDbLinkedList<int>::Node* itemNode = _myList.GetNode( index );
-		if ( itemNode != NULL )
-		{
-			return itemNode->value;
-		}
-		return NULL;
+		return _myList.GetItem( index );
 	}
 	//Reverse
 	void Revers()
