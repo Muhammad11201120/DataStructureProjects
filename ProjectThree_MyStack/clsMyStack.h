@@ -6,16 +6,17 @@ template <class T>
 class clsMyStack : public clsMyQueue<T>
 {
 public:
+	clsMyQueue<int>MyQueu;
 	void Push( T item )
 	{
-		clsMyQueue<T> _myList.InsertAtBeganing( item );
+		MyQueu.InsertAtFront( item );
 	}
 	T Top()
 	{
-		return clsMyQueue<T>::_myList.Front();
+		return MyQueu.Front();
 	}
 	T Bottom()
 	{
-		return clsMyQueue<T>::_myList.Back();
+		return MyQueu.Back();
 	}
 };
