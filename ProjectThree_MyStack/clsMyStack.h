@@ -5,18 +5,20 @@
 template <class T>
 class clsMyStack : public clsMyQueue<T>
 {
+protected:
+	clsMyQueue <int> MyQueue;
 public:
-	clsMyQueue<int>MyQueu;
+
 	void Push( T item )
 	{
-		MyQueu.InsertAtFront( item );
+		clsMyQueue<int>::_myList.InsertAtBeganing( item );
 	}
 	T Top()
 	{
-		return MyQueu.Front();
+		return clsMyQueue<int>::Front();
 	}
 	T Bottom()
 	{
-		return MyQueu.Back();
+		return clsMyQueue<int>::Back();
 	}
 };
