@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\projectFour_MyDynamicList",
+    "\\projectOne_MyDoublyLinkedList",
     "\\ProjectThree_MyStack",
     "\\projectTwo_MyQueu"
   ],
-  "SelectedNode": "\\ProjectThree_MyStack\\ProjectThree_MyStack.cpp",
+  "SelectedNode": "\\projectFour_MyDynamicList\\projectFour_MyDynamicList.cpp",
   "PreviewInSolutionExplorer": false
 }
