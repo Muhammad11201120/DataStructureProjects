@@ -141,9 +141,53 @@ public:
 		}
 		return false;
 	}
-	bool InserItem( int index , T item )
+	bool InsertItem( int index , T value )
 	{
-		//todo
+		if ( index < 0 || index > this->_size )
+		{
+			return false;
+		}
+		this->_size++;
+		tempArr = new T[ this->_size ];
+		for ( int i = 0; i < index; i++ )
+		{
+			tempArr[ i ] = arr[ i ];
+		}
+
+		tempArr[ index ] = value;
+
+		for ( int i = index + 1; i < this->_size; i++ )
+		{
+			tempArr[ i ] = arr[ i - 1 ];
+		}
+		delete[]arr;
+		arr = tempArr;
+		return true;
+	}
+	bool InsertAtBeganing( T value )
+	{
+
+		return InsertItem( 0 , value );
+	}
+	bool InsertAtEnd( T value )
+	{
+		return InsertItem( this->_size , value );
+	}
+	bool InsertBefore( int index , T value )
+	{
+		if ( index < 1 )
+		{
+			return  InsertItem( 0 , value );
+		}
+		return InsertItem( index , value );
+	}
+	bool InsertAfter( int index , T value )
+	{
+		if ( index >= this->_size )
+		{
+			return InsertItem( this->_size , value );
+		}
+		InsertItem( index + 1 , value );
 	}
 	void Print()
 	{

@@ -35,5 +35,20 @@ int main()
 	cout << "\n";
 	MyArr.DeleteItem( 2 );
 	MyArr.Print();
+	cout << "\n";
+	MyArr.InsertItem( 2 , 12 );
+	MyArr.Print();
+
+	cout << "\n";
+	MyArr.InsertAfter( 3 , 17 );
+	MyArr.Print();
+
+	cout << "\n";
+	MyArr.InsertBefore( 2 , 19 );
+	MyArr.Print();
+
+	cout << "\n";
+	MyArr.InsertAtEnd( 100 );
+	MyArr.Print();
 	system( "pause>0" );
 }
