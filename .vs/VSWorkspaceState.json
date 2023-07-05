@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\MyQueueArr",
+    "\\MyStackArr",
     "\\projectFour_MyDynamicList",
     "\\projectOne_MyDoublyLinkedList",
     "\\ProjectThree_MyStack",
-    "\\projectTwo_MyQueu"
+    "\\projectTwo_MyQueu",
+    "\\StringRedoUndo"
   ],
-  "SelectedNode": "\\MyQueueArr\\MyQueueArr.cpp",
+  "SelectedNode": "\\StringRedoUndo\\StringRedoUndo.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -1,9 +1,9 @@
 #include <iostream>
-#include"clsMyStack.h"
+#include"clsMyStackArr.h"
 using namespace std;
 int main()
 {
-	clsMyStack<int> myStack;
+	clsMyStackArr<int> myStack;
 	myStack.Push( 10 );
 	myStack.Push( 20 );
 	myStack.Push( 30 );

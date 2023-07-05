@@ -8,7 +8,7 @@ protected:
 	T* arr;
 	T* tempArr;
 public:
-	clsMyDynamicList( int size )
+	clsMyDynamicList( int size = 0 )
 	{
 		if ( size < 0 )
 		{
