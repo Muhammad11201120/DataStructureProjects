@@ -1,20 +1,42 @@
 #pragma once
-#include<iostream>
-#include"..\MyStackArr\clsMyStackArr.h"
+
+#include<stack>
 using namespace std;
 class clsString
 {
 protected:
-	clsMyStackArr<string> _myStaack;
+	stack<string> _redo;
+	stack<string> _undo;
 	string _value = "";
+
 public:
+	void setValue( string value )
+	{
+		this->_undo.push( this->_value );
+		this->_value = value;
+
+	}
+	string getValue()
+	{
+		return this->_value;
+	}
 	void Undo()
 	{
-		_myStaack.Pop();
+		if ( !_undo.empty() )
+		{
+			this->_redo.push( this->_value );
+			this->_value = _undo.top();
+			this->_undo.pop();
+		}
 	}
 	void Redo()
 	{
-		_myStaack.Push( _value );
+		if ( !_redo.empty() )
+		{
+			_undo.push( _value );
+			_value = _redo.top();
+			_redo.pop();
+		}
 	}
 };
 
