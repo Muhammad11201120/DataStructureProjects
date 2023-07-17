@@ -3,13 +3,14 @@
 using namespace std;
 int main()
 {
-	clsQueueLine queue( "B0" );
+	clsQueueLine queue( "B0" , 5 );
 	queue.IssueTicket();
 	queue.IssueTicket();
 	queue.IssueTicket();
 	queue.PrintInfo();
-	cout << "\t\t\t\t"; queue.PrintTicketsLineRTL();
+	cout << "\t\t\tQueue From Right To Left: \n\n";
+	cout << "\t\t\t"; queue.PrintTicketsLineRTL();
 	cout << "\n\n";
-	cout << "\t\t\t\t"; queue.PrintTicketsLineLTR();
+	queue.PrintAllTickets();
 	system( "pause>0" );
 }

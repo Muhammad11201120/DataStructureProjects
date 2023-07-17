@@ -1,1 +1,2 @@
 D:\PROGRAMMING\c++\dataStructure\DataStructureProjects\Queue_System\Debug\Queue_System.exe
+D:\Programing\c++\DataStructureProjects\DataStructureProjects\DataStructureProjects\Queue_System\Debug\Queue_System.exe
